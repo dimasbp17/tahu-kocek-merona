@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 // Ubah path menjadi id yang sesuai dengan ID section di halaman Anda
 const menuItems = [
   { name: 'Beranda', id: 'beranda' },
+  { name: 'Cerita', id: 'cerita' },
   { name: 'Keunggulan', id: 'keunggulan' },
   { name: 'Menu', id: 'menu' },
   { name: 'Order', id: 'order' },

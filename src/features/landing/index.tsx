@@ -3,6 +3,7 @@ import Footer from '@/components/common/footer';
 import WhatsappButton from '@/components/common/whatsapp-button';
 import Header from './partials/Header';
 import Marquee from './partials/Marquee';
+import CeritaKami from './partials/CeritaKami';
 import Menus from './partials/Menus';
 import Keunggulan from './partials/Keunggulan';
 import Order from './partials/Order';
@@ -18,6 +19,13 @@ const LandingPage = () => {
         </section>
 
         <Marquee />
+
+        <section
+          id="cerita"
+          className="scroll-mt-24 py-24 md:py-32"
+        >
+          <CeritaKami />
+        </section>
 
         <section
           id="keunggulan"

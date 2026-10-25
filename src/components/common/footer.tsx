@@ -2,6 +2,7 @@ import { site, whatsappUrl } from '@/lib/site';
 
 const links = [
   { name: 'Beranda', href: '#beranda' },
+  { name: 'Cerita', href: '#cerita' },
   { name: 'Keunggulan', href: '#keunggulan' },
   { name: 'Menu', href: '#menu' },
   { name: 'Order', href: '#order' },
