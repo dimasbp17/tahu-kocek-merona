@@ -6,37 +6,31 @@ import SectionHeader from './section-header';
 
 const menuItems = [
   {
-    src: '/images/tahu-kocek.jpg',
-    name: 'Tahu Kocek Original',
-    level: 0,
-    description: 'Tahu aci garing diulek bareng sambal bawang dan kol segar.',
-  },
-  {
-    src: '/images/tahu-kocek.jpg',
+    src: '/images/level-1.jpg',
     name: 'Tahu Kocek Level 1',
     level: 1,
     description: 'Pedas tipis-tipis, pas buat pemanasan.',
   },
   {
-    src: '/images/tahu-kocek.jpg',
+    src: '/images/level-2.jpg',
     name: 'Tahu Kocek Level 2',
     level: 2,
     description: 'Mulai terasa hangat, gurihnya tetap juara.',
   },
   {
-    src: '/images/tahu-kocek.jpg',
+    src: '/images/level-3.jpg',
     name: 'Tahu Kocek Level 3',
     level: 3,
     description: 'Pedas mantap buat kamu yang sudah terbiasa.',
   },
   {
-    src: '/images/tahu-kocek.jpg',
+    src: '/images/level-4.jpg',
     name: 'Tahu Kocek Level 4',
     level: 4,
     description: 'Siapkan minum, pedasnya mulai menantang.',
   },
   {
-    src: '/images/tahu-kocek.jpg',
+    src: '/images/level-5.jpg',
     name: 'Tahu Kocek Level 5',
     level: 5,
     description: 'Versi pedas maksimal buat kamu yang suka tantangan.',
@@ -61,17 +55,12 @@ const Menus = () => {
             delay={(index % 3) * 0.1}
           >
             <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cobek/10">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={item.src}
-                  alt={item.name}
-                  className="size-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-cobek/50 via-transparent to-transparent" />
-                <span className="absolute top-4 left-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-cobek backdrop-blur">
-                  {item.level === 0 ? 'Tidak pedas' : `Level ${item.level}`}
-                </span>
-              </div>
+              {/* gambar sudah memuat badge level, jadi ditampilkan utuh */}
+              <img
+                src={item.src}
+                alt={item.name}
+                className="aspect-square w-full object-contain"
+              />
 
               <div className="flex flex-1 flex-col gap-3 p-6">
                 <div className="flex items-center gap-0.5">
