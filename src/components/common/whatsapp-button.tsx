@@ -8,11 +8,11 @@ const WhatsappButton = () => {
       href={whatsappUrl()}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Pesan via WhatsApp"
+      aria-label="Pesan jumlah besar via WhatsApp"
       className="fixed right-5 bottom-5 z-40 flex items-center gap-2 rounded-full bg-emerald-500 p-4 text-white shadow-xl shadow-emerald-500/30 transition-all hover:-translate-y-0.5 hover:bg-emerald-400 md:px-5 md:py-3.5"
     >
       <MessageCircle className="size-6" />
-      <span className="hidden font-bold md:inline">Pesan via WA</span>
+      <span className="hidden font-bold md:inline">Pesan Jumlah Besar</span>
     </a>
   );
 };

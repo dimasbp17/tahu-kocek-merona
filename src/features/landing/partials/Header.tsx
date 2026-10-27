@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Flame, Sparkles } from 'lucide-react';
 
-const highlights = ['Digoreng dadakan', 'Sambal ulek segar', 'Level pedas 0–5'];
+const highlights = ['Digoreng dadakan', 'Sambal ulek segar', 'Level pedas 1–5'];
 
 const Header = () => {
   return (
@@ -102,7 +102,7 @@ const Header = () => {
             </span>
             <div className="leading-tight">
               <p className="text-xs text-muted-foreground">Pilih level</p>
-              <p className="font-heading font-bold">Pedas 0–5</p>
+              <p className="font-heading font-bold">Pedas 1–5</p>
             </div>
           </div>
           <div className="absolute right-0 bottom-8 flex items-center gap-3 rounded-2xl bg-white/90 px-4 py-3 shadow-xl backdrop-blur">

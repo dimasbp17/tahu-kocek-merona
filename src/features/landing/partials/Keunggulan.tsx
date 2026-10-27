@@ -7,7 +7,7 @@ const features = [
     icon: ShoppingCart,
     title: 'Pesan Super Mudah',
     description:
-      'Lagi ngidam? Tinggal chat WA atau pesan via ojol, tahu kocek langsung diproses.',
+      'Lagi ngidam? Tinggal pesan via ojol, atau chat WA untuk pesanan jumlah besar.',
   },
   {
     icon: Truck,

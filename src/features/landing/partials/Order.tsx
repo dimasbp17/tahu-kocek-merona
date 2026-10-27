@@ -1,30 +1,12 @@
 import { Store, MessageCircle, ArrowUpRight, ArrowRight } from 'lucide-react';
 import Reveal from '@/components/common/reveal';
-import { site, whatsappUrl } from '@/lib/site';
+import { deliveryApps, whatsappUrl } from '@/lib/site';
 
-const deliveryApps = [
-  {
-    id: 'gofood',
-    name: 'GoFood',
-    desc: 'Pesan cepat via aplikasi Gojek',
-    className: 'bg-[#EE2737]',
-    url: site.deliveryApps.gofood,
-  },
-  {
-    id: 'grabfood',
-    name: 'GrabFood',
-    desc: 'Nikmati promo di GrabFood',
-    className: 'bg-[#00B14F]',
-    url: site.deliveryApps.grabfood,
-  },
-  {
-    id: 'shopeefood',
-    name: 'ShopeeFood',
-    desc: 'Klaim gratis ongkirmu di sini',
-    className: 'bg-[#EE4D2D]',
-    url: site.deliveryApps.shopeefood,
-  },
-];
+const appDescriptions: Record<string, string> = {
+  gofood: 'Pesan cepat via aplikasi Gojek',
+  grabfood: 'Nikmati promo di GrabFood',
+  shopeefood: 'Klaim gratis ongkirmu di sini',
+};
 
 const Order = () => {
   return (
@@ -43,8 +25,8 @@ const Order = () => {
               Siap Menikmati <span className="text-secondary">Pedasnya?</span>
             </h2>
             <p className="text-lg text-white/70">
-              Pilih platform favoritmu atau hubungi kami langsung untuk
-              pemesanan dalam jumlah banyak.
+              Pesan satuan lewat platform favoritmu. Untuk pesanan dalam
+              jumlah besar, hubungi kami langsung via WhatsApp.
             </p>
           </header>
 
@@ -68,7 +50,9 @@ const Order = () => {
                     <ArrowUpRight className="size-6 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
                   <h3 className="mb-1 text-2xl font-bold">{app.name}</h3>
-                  <p className="text-sm text-white/85">{app.desc}</p>
+                  <p className="text-sm text-white/85">
+                    {appDescriptions[app.id]}
+                  </p>
                 </a>
               </Reveal>
             ))}
@@ -82,9 +66,12 @@ const Order = () => {
                   <MessageCircle className="size-7" />
                 </span>
                 <div>
-                  <h3 className="text-xl font-bold">Pesan via WhatsApp</h3>
+                  <h3 className="text-xl font-bold">
+                    Pesanan Jumlah Besar via WhatsApp
+                  </h3>
                   <p className="mt-1 text-sm text-white/70">
-                    Cocok untuk pre-order, acara keluarga, atau jumlah besar.
+                    Khusus jumlah besar: acara keluarga, kantor, hajatan, atau
+                    pre-order. Pesanan satuan silakan lewat aplikasi di atas.
                   </p>
                 </div>
               </div>

@@ -40,7 +40,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-sm font-semibold text-cobek/70 transition-colors hover:text-primary"
           >
-            WhatsApp
+            WhatsApp (Jumlah Besar)
           </a>
         </nav>
       </div>
