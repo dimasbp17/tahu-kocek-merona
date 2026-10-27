@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   title: "Tahu Kocek Merona — Asli Gurih, Bikin Nagih",
   description:
     "Tahu kocek digoreng dadakan dengan sambal ulek segar. Pilih level pedasmu dan pesan via GoFood, GrabFood, ShopeeFood, atau WhatsApp untuk jumlah besar.",
-  icons: { icon: "/favicon.svg" },
 };
 
 export default function RootLayout({

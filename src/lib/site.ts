@@ -18,7 +18,7 @@ export const deliveryApps = [
   {
     id: 'gofood',
     name: 'GoFood',
-    className: 'bg-[#EE2737]',
+    className: 'bg-[#00880D]',
     url: site.deliveryApps.gofood,
   },
   {
