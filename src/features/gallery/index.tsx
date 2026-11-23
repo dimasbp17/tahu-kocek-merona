@@ -1,13 +1,20 @@
 "use client";
 
+import { useState } from 'react';
 import { Tabs } from '@base-ui/react/tabs';
-import { Camera, ImageIcon, PlayCircle, Video } from 'lucide-react';
+import { Camera, ImageIcon, Play, PlayCircle, Video } from 'lucide-react';
 import Reveal from '@/components/common/reveal';
 import SectionHeader from '@/features/landing/partials/section-header';
 import { galleryPhotos, galleryVideos } from './data';
+import GalleryPreview, { type PreviewItem } from './gallery-preview';
+
+type GalleryTab = 'foto' | 'video';
 
 const tabClassName =
   'relative z-10 flex items-center gap-2 rounded-full px-5 py-2 text-sm font-bold text-cobek/70 outline-none transition-colors select-none hover:text-primary focus-visible:ring-3 focus-visible:ring-ring/50 data-active:text-primary-foreground';
+
+const thumbClassName =
+  'group relative block w-full overflow-hidden rounded-2xl outline-none focus-visible:ring-3 focus-visible:ring-ring/50';
 
 const Placeholder = ({
   icon: Icon,
@@ -19,7 +26,7 @@ const Placeholder = ({
   className: string;
 }) => (
   <div
-    className={`flex flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-border bg-muted/50 text-muted-foreground ${className}`}
+    className={`flex flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-border bg-muted/50 text-muted-foreground transition-colors group-hover:border-primary/40 group-hover:text-primary ${className}`}
   >
     <Icon className="size-8" />
     <span className="text-xs font-semibold">{label}</span>
@@ -27,6 +34,30 @@ const Placeholder = ({
 );
 
 const GallerySection = () => {
+  const [open, setOpen] = useState(false);
+  const [preview, setPreview] = useState<{ tab: GalleryTab; index: number }>({
+    tab: 'foto',
+    index: 0,
+  });
+
+  const items = preview.tab === 'foto' ? galleryPhotos : galleryVideos;
+  const current: PreviewItem | null =
+    preview.tab === 'foto'
+      ? { type: 'foto', item: galleryPhotos[preview.index] }
+      : { type: 'video', item: galleryVideos[preview.index] };
+
+  const openPreview = (tab: GalleryTab, index: number) => {
+    setPreview({ tab, index });
+    setOpen(true);
+  };
+
+  // geser ke item sebelumnya/berikutnya, berputar di ujung
+  const step = (delta: number) =>
+    setPreview((p) => ({
+      ...p,
+      index: (p.index + delta + items.length) % items.length,
+    }));
+
   return (
     <div className="mx-auto max-w-6xl px-4">
       <SectionHeader
@@ -67,20 +98,27 @@ const GallerySection = () => {
                 key={index}
                 delay={(index % 4) * 0.05}
               >
-                {photo.src ? (
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    loading="lazy"
-                    className="aspect-square w-full rounded-2xl object-cover"
-                  />
-                ) : (
-                  <Placeholder
-                    icon={ImageIcon}
-                    label="Foto segera hadir"
-                    className="aspect-square"
-                  />
-                )}
+                <button
+                  type="button"
+                  aria-label={`Lihat ${photo.alt}`}
+                  onClick={() => openPreview('foto', index)}
+                  className={thumbClassName}
+                >
+                  {photo.src ? (
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      loading="lazy"
+                      className="aspect-square w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  ) : (
+                    <Placeholder
+                      icon={ImageIcon}
+                      label="Foto segera hadir"
+                      className="aspect-square"
+                    />
+                  )}
+                </button>
               </Reveal>
             ))}
           </div>
@@ -97,28 +135,52 @@ const GallerySection = () => {
                 key={index}
                 delay={(index % 3) * 0.05}
               >
-                {video.src ? (
-                  <video
-                    src={video.src}
-                    poster={video.poster}
-                    controls
-                    playsInline
-                    preload="metadata"
-                    aria-label={video.title}
-                    className="aspect-[9/16] w-full rounded-2xl bg-cobek object-cover"
-                  />
-                ) : (
-                  <Placeholder
-                    icon={PlayCircle}
-                    label="Video segera hadir"
-                    className="aspect-[9/16]"
-                  />
-                )}
+                <button
+                  type="button"
+                  aria-label={`Putar ${video.title}`}
+                  onClick={() => openPreview('video', index)}
+                  className={thumbClassName}
+                >
+                  {video.src ? (
+                    <>
+                      {/* thumbnail: frame pertama atau poster, diputar di preview */}
+                      <video
+                        src={video.src}
+                        poster={video.poster}
+                        muted
+                        playsInline
+                        preload="metadata"
+                        className="aspect-[9/16] w-full bg-cobek object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <span className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/30">
+                        <span className="flex size-14 items-center justify-center rounded-full bg-white/90 text-primary shadow-lg">
+                          <Play className="ml-0.5 size-6 fill-current" />
+                        </span>
+                      </span>
+                    </>
+                  ) : (
+                    <Placeholder
+                      icon={PlayCircle}
+                      label="Video segera hadir"
+                      className="aspect-[9/16]"
+                    />
+                  )}
+                </button>
               </Reveal>
             ))}
           </div>
         </Tabs.Panel>
       </Tabs.Root>
+
+      <GalleryPreview
+        open={open}
+        onOpenChange={setOpen}
+        current={current}
+        index={preview.index}
+        total={items.length}
+        onPrev={() => step(-1)}
+        onNext={() => step(1)}
+      />
     </div>
   );
 };
