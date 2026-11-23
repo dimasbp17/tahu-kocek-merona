@@ -1,8 +1,9 @@
 "use client";
 
 import { Dialog } from '@base-ui/react/dialog';
-import { Flame, ArrowUpRight, ArrowDown, MessageCircle, X } from 'lucide-react';
+import { Flame, ArrowUpRight, ArrowDown, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import WhatsappIcon from '@/components/common/whatsapp-icon';
 import { deliveryApps, formatRupiah, site, whatsappUrl } from '@/lib/site';
 
 export interface MenuItem {
@@ -148,9 +149,9 @@ const MenuCard = ({ item }: { item: MenuItem }) => {
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-emerald-500 px-5 py-2.5 text-sm font-bold text-emerald-600 transition-colors hover:bg-emerald-500 hover:text-white"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#25D366] px-5 py-2.5 text-sm font-bold text-[#128C7E] transition-colors hover:bg-[#25D366] hover:text-white"
               >
-                <MessageCircle className="size-4" />
+                <WhatsappIcon className="size-4" />
                 Pesan jumlah besar via WA
               </a>
             </div>
