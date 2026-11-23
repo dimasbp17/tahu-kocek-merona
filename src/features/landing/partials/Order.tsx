@@ -26,8 +26,8 @@ const Order = () => {
               Siap Menikmati <span className="text-secondary">Pedasnya?</span>
             </h2>
             <p className="text-lg text-white/70">
-              Pesan satuan lewat platform favoritmu. Untuk pesanan dalam
-              jumlah besar, hubungi kami langsung via WhatsApp.
+              Pesan antar langsung via WhatsApp, atau lewat aplikasi delivery
+              favoritmu.
             </p>
           </header>
 
@@ -68,11 +68,12 @@ const Order = () => {
                 </span>
                 <div>
                   <h3 className="text-xl font-bold">
-                    Pesanan Jumlah Besar via WhatsApp
+                    Pesan Langsung via WhatsApp
                   </h3>
                   <p className="mt-1 text-sm text-white/70">
-                    Khusus jumlah besar: acara keluarga, kantor, hajatan, atau
-                    pre-order. Pesanan satuan silakan lewat aplikasi di atas.
+                    Format pesanan sudah disiapkan, tinggal isi jumlah, level
+                    pedas, dan alamat pengantaran. Pesanan besar untuk acara
+                    juga bisa.
                   </p>
                 </div>
               </div>
@@ -83,7 +84,7 @@ const Order = () => {
                 rel="noopener noreferrer"
                 className="group flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-8 py-3.5 font-bold text-white transition-colors hover:bg-[#1EBE5B] md:w-auto"
               >
-                Chat Admin
+                Pesan via WA
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </a>
             </div>

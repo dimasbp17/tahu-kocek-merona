@@ -13,14 +13,11 @@ export const site = {
   tagline: 'Asli Gurih, Bikin Nagih',
   url: siteUrl,
   description:
-    'Tahu kocek digoreng dadakan dengan sambal ulek segar. Pilih level pedasmu, beli langsung Rp10.000 atau pesan via GoFood, GrabFood, ShopeeFood, dan WhatsApp untuk jumlah besar.',
+    'Tahu kocek digoreng dadakan dengan sambal ulek segar. Pilih level pedasmu, beli langsung Rp10.000, pesan antar via WhatsApp, atau lewat GoFood, GrabFood, dan ShopeeFood.',
   // Nomor WA diawali kode negara 62, tanpa tanda + atau spasi.
-  // WA khusus pesanan jumlah besar; pesanan satuan lewat aplikasi delivery.
   whatsapp: '6282146202762',
   // Username Instagram tanpa @.
   instagram: 'tahukocek_merona',
-  whatsappMessage:
-    'Halo Tahu Kocek Merona, saya mau pesan dalam jumlah besar',
   // Harga beli langsung di tempat (semua level sama).
   // Harga di aplikasi delivery bisa berbeda.
   priceOffline: 10000,
@@ -71,5 +68,16 @@ export const mapsEmbedUrl = `https://www.google.com/maps?q=${coords}&z=17&output
 // Membuka Google Maps dengan rute dari posisi pengguna ke lokasi.
 export const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${coords}`;
 
-export const whatsappUrl =(message = site.whatsappMessage) =>
+// Template pesan WA: pembeli tinggal isi jumlah, level pedas, dan alamat.
+// Kalau `menu` diisi (dari detail menu), level pedas sudah terisi otomatis.
+export const orderMessage = (menu?: string) =>
+  [
+    `Halo ${site.name}, saya mau pesan:`,
+    '',
+    `Rasa (level pedas 1-5): ${menu ?? ''}`,
+    'Jumlah porsi: ',
+    'Alamat pengantaran: ',
+  ].join('\n');
+
+export const whatsappUrl = (message = orderMessage()) =>
   `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`;
