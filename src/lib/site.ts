@@ -16,7 +16,9 @@ export const site = {
     'Tahu kocek digoreng dadakan dengan sambal ulek segar. Pilih level pedasmu, beli langsung Rp10.000 atau pesan via GoFood, GrabFood, ShopeeFood, dan WhatsApp untuk jumlah besar.',
   // Nomor WA diawali kode negara 62, tanpa tanda + atau spasi.
   // WA khusus pesanan jumlah besar; pesanan satuan lewat aplikasi delivery.
-  whatsapp: '6281259394707',
+  whatsapp: '6282146202762',
+  // Username Instagram tanpa @.
+  instagram: 'tahukocek_merona',
   whatsappMessage:
     'Halo Tahu Kocek Merona, saya mau pesan dalam jumlah besar',
   // Harga beli langsung di tempat (semua level sama).
@@ -57,7 +59,9 @@ export const deliveryApps = [
   },
 ];
 
-export const formatRupiah = (value: number) =>
+export const instagramUrl = `https://www.instagram.com/${site.instagram}/`;
+
+export const formatRupiah =(value: number) =>
   `Rp${value.toLocaleString('id-ID')}`;
 
 const coords = `${site.location.lat},${site.location.lng}`;

@@ -1,4 +1,4 @@
-import { site } from '@/lib/site';
+import { instagramUrl, site } from '@/lib/site';
 
 // Data terstruktur untuk Google (schema.org Restaurant).
 // Membantu tampil di hasil pencarian & Maps beserta lokasi dan harga.
@@ -29,6 +29,7 @@ const JsonLd = () => {
       longitude: location.lng,
     },
     hasMap: location.mapsUrl,
+    sameAs: [instagramUrl],
     hasMenu: {
       '@type': 'Menu',
       hasMenuSection: {
