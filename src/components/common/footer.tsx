@@ -5,7 +5,9 @@ const links = [
   { name: 'Cerita', href: '#cerita' },
   { name: 'Keunggulan', href: '#keunggulan' },
   { name: 'Menu', href: '#menu' },
+  { name: 'Galeri', href: '#galeri' },
   { name: 'Order', href: '#order' },
+  { name: 'Lokasi', href: '#lokasi' },
 ];
 
 const Footer = () => {

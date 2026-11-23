@@ -7,6 +7,8 @@ import CeritaKami from './partials/CeritaKami';
 import Menus from './partials/Menus';
 import Keunggulan from './partials/Keunggulan';
 import Order from './partials/Order';
+import Lokasi from './partials/Lokasi';
+import GallerySection from '@/features/gallery';
 
 const LandingPage = () => {
   return (
@@ -42,10 +44,24 @@ const LandingPage = () => {
         </section>
 
         <section
+          id="galeri"
+          className="scroll-mt-24 py-24 md:py-32"
+        >
+          <GallerySection />
+        </section>
+
+        <section
           id="order"
           className="scroll-mt-24 py-24 md:py-32"
         >
           <Order />
+        </section>
+
+        <section
+          id="lokasi"
+          className="scroll-mt-24 bg-muted/60 py-24 md:py-32"
+        >
+          <Lokasi />
         </section>
       </main>
 

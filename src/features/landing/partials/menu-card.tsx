@@ -3,7 +3,7 @@
 import { Dialog } from '@base-ui/react/dialog';
 import { Flame, ArrowUpRight, ArrowDown, MessageCircle, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { deliveryApps, whatsappUrl } from '@/lib/site';
+import { deliveryApps, formatRupiah, site, whatsappUrl } from '@/lib/site';
 
 export interface MenuItem {
   src: string;
@@ -42,7 +42,12 @@ const MenuCard = ({ item }: { item: MenuItem }) => {
         />
 
         <div className="flex flex-1 flex-col gap-3 p-6">
-          <Flames level={item.level} />
+          <div className="flex items-center justify-between gap-2">
+            <Flames level={item.level} />
+            <span className="text-lg font-extrabold text-primary">
+              {formatRupiah(site.priceOffline)}
+            </span>
+          </div>
           <h3 className="text-xl font-bold">
             {/* after: membentang ke seluruh kartu, jadi klik di mana saja membuka detail */}
             <Dialog.Trigger className="text-left outline-none after:absolute after:inset-0 after:rounded-3xl focus-visible:after:ring-3 focus-visible:after:ring-ring/50">
@@ -87,6 +92,13 @@ const MenuCard = ({ item }: { item: MenuItem }) => {
                 <span className="w-fit rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
                   {item.heat}
                 </span>
+                <p className="text-xl font-extrabold text-primary">
+                  {formatRupiah(site.priceOffline)}
+                  <span className="text-xs font-semibold text-muted-foreground">
+                    {' '}
+                    beli di tempat · harga aplikasi bisa berbeda
+                  </span>
+                </p>
               </div>
               <Dialog.Close
                 aria-label="Tutup"

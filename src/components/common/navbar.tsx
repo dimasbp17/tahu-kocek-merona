@@ -10,7 +10,9 @@ const menuItems = [
   { name: 'Cerita', id: 'cerita' },
   { name: 'Keunggulan', id: 'keunggulan' },
   { name: 'Menu', id: 'menu' },
+  { name: 'Galeri', id: 'galeri' },
   { name: 'Order', id: 'order' },
+  { name: 'Lokasi', id: 'lokasi' },
 ];
 
 const Navbar = () => {
@@ -76,7 +78,7 @@ const Navbar = () => {
         </a>
 
         {/* Menu desktop */}
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {menuItems.map((item) => (
             <a
               key={item.id}
@@ -97,7 +99,7 @@ const Navbar = () => {
         <a
           href="#order"
           onClick={(e) => handleSmoothScroll(e, 'order')}
-          className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-md shadow-primary/30 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/40 md:inline-flex"
+          className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-md shadow-primary/30 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/40 lg:inline-flex"
         >
           Pesan Sekarang
         </a>
@@ -108,7 +110,7 @@ const Navbar = () => {
           aria-label={open ? 'Tutup menu' : 'Buka menu'}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="flex size-10 items-center justify-center rounded-full text-cobek md:hidden"
+          className="flex size-10 items-center justify-center rounded-full text-cobek lg:hidden"
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
@@ -116,7 +118,7 @@ const Navbar = () => {
 
       {/* Menu mobile */}
       {open && (
-        <nav className="mx-auto mt-2 flex max-w-6xl flex-col gap-1 rounded-3xl border border-border/70 bg-white/95 p-3 shadow-lg backdrop-blur-md md:hidden">
+        <nav className="mx-auto mt-2 flex max-w-6xl flex-col gap-1 rounded-3xl border border-border/70 bg-white/95 p-3 shadow-lg backdrop-blur-md lg:hidden">
           {menuItems.map((item) => (
             <a
               key={item.id}
