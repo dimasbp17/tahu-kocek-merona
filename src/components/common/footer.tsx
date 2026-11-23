@@ -1,4 +1,6 @@
-import { site, whatsappUrl } from '@/lib/site';
+import { instagramUrl, site, whatsappUrl } from '@/lib/site';
+import InstagramIcon from './instagram-icon';
+import WhatsappIcon from './whatsapp-icon';
 
 const links = [
   { name: 'Beranda', href: '#beranda' },
@@ -24,6 +26,26 @@ const Footer = () => {
             {site.tagline}. Tahu kocek digoreng dadakan dengan sambal ulek
             segar.
           </p>
+          <div className="flex gap-2">
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Instagram @${site.instagram}`}
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] px-4 py-2 text-sm font-bold text-white transition-opacity hover:opacity-90"
+            >
+              <InstagramIcon className="size-4" />@{site.instagram}
+            </a>
+            <a
+              href={whatsappUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="inline-flex size-9 items-center justify-center rounded-full bg-[#25D366] text-white transition-opacity hover:opacity-90"
+            >
+              <WhatsappIcon className="size-4" />
+            </a>
+          </div>
         </div>
 
         <nav className="flex flex-wrap gap-x-6 gap-y-2">
