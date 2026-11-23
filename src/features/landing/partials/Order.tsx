@@ -1,5 +1,6 @@
-import { Store, MessageCircle, ArrowUpRight, ArrowRight } from 'lucide-react';
+import { Store, ArrowUpRight, ArrowRight } from 'lucide-react';
 import Reveal from '@/components/common/reveal';
+import WhatsappIcon from '@/components/common/whatsapp-icon';
 import { deliveryApps, whatsappUrl } from '@/lib/site';
 
 const appDescriptions: Record<string, string> = {
@@ -62,8 +63,8 @@ const Order = () => {
           <Reveal delay={0.2}>
             <div className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur md:flex-row md:p-8">
               <div className="flex w-full items-center gap-5 md:w-auto">
-                <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/20 text-emerald-400">
-                  <MessageCircle className="size-7" />
+                <span className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-[#25D366]/20 text-[#25D366]">
+                  <WhatsappIcon className="size-7" />
                 </span>
                 <div>
                   <h3 className="text-xl font-bold">
@@ -80,7 +81,7 @@ const Order = () => {
                 href={whatsappUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-8 py-3.5 font-bold text-white transition-colors hover:bg-emerald-400 md:w-auto"
+                className="group flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-8 py-3.5 font-bold text-white transition-colors hover:bg-[#1EBE5B] md:w-auto"
               >
                 Chat Admin
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
