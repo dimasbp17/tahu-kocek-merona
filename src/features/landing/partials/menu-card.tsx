@@ -4,7 +4,13 @@ import { Dialog } from '@base-ui/react/dialog';
 import { Flame, ArrowUpRight, ArrowDown, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import WhatsappIcon from '@/components/common/whatsapp-icon';
-import { deliveryApps, formatRupiah, site, whatsappUrl } from '@/lib/site';
+import {
+  deliveryApps,
+  formatRupiah,
+  orderMessage,
+  site,
+  whatsappUrl,
+} from '@/lib/site';
 
 export interface MenuItem {
   src: string;
@@ -61,7 +67,7 @@ const MenuCard = ({ item }: { item: MenuItem }) => {
           <span className="text-sm font-semibold text-primary">
             Lihat detail →
           </span>
-          {/* pesanan satuan diarahkan ke aplikasi delivery di section order */}
+          {/* tombol ini mengarah ke pilihan pemesanan di section order */}
           <a
             href="#order"
             className="relative z-10 mt-2 inline-flex items-center justify-between rounded-full bg-muted px-5 py-3 text-sm font-bold text-cobek transition-colors group-hover:bg-primary group-hover:text-primary-foreground"
@@ -144,15 +150,13 @@ const MenuCard = ({ item }: { item: MenuItem }) => {
                 ))}
               </div>
               <a
-                href={whatsappUrl(
-                  `Halo Tahu Kocek Merona, saya mau pesan ${item.name} dalam jumlah besar`
-                )}
+                href={whatsappUrl(orderMessage(`Level ${item.level}`))}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-[#25D366] px-5 py-2.5 text-sm font-bold text-[#128C7E] transition-colors hover:bg-[#25D366] hover:text-white"
               >
                 <WhatsappIcon className="size-4" />
-                Pesan jumlah besar via WA
+                Pesan via WhatsApp
               </a>
             </div>
           </div>
